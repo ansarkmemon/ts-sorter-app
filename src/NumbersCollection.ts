@@ -1,4 +1,6 @@
-class NumbersCollection {
+import {Sortable} from "./Sorter";
+
+class NumbersCollection implements Sortable {
     constructor(public data: number[]) {}
 
     get length(): number {

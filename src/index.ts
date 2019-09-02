@@ -1,20 +1,14 @@
+import Sorter from "./Sorter";
 import NumbersCollection from "./NumbersCollection";
+import {CharactersCollection} from "./CharactersCollection";
 
-class Sorter {
-    constructor(public collection: NumbersCollection) {}
+const numCollection = new NumbersCollection([-5, 0, 3, -1]);
+const stringToSort = new CharactersCollection('ansar');
+const sorter = new Sorter(numCollection);
+const stringSorter = new Sorter(stringToSort);
 
-    sort(): void {
-        for(let i = 0; i < collection.length; i++) {
-            for(let j = 0; j < collection.length - i - 1; j++) {
-                if(this.collection.compare(j, j+1)) {
-                    this.collection.swap(j, j+1)
-                }
-            }
-        }
-    }
-}
-
-const collection = new NumbersCollection([10, 3, -5, 0]);
-const sorter = new Sorter(collection);
 sorter.sort();
-console.log(collection.data);
+stringSorter.sort();
+
+console.log(numCollection.data);
+console.log(stringToSort.data);
